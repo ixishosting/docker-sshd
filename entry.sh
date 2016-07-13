@@ -6,6 +6,11 @@ set -e
 
 DAEMON=sshd
 
+# Enable proxy script 
+if [ "$PROXY_FORWARD" == 'true' ]; then
+   echo -e "ForceCommand /root/proxy.sh\n" >> /etc/ssh/sshd_config
+fi
+
 # Copy default config from cache
 if [ ! "$(ls -A /etc/ssh)" ]; then
    cp -a /etc/ssh.cache/* /etc/ssh/

@@ -4,3 +4,14 @@ ssh1:
    - /root/testclient/authorized_keys:/root/.ssh/authorized_keys:ro
   ports:
    - "1234:22"
+  environment:
+    PROXY_FORWARD: 'true'
+
+ssh2:
+  image: ixis/docker-sshd
+  volumes:
+   - /root/testclient/authorized_keys:/root/.ssh/authorized_keys:ro
+  ports:
+   - "1234:22"
+  environment:
+    PROXY_FORWARD: 'true'
