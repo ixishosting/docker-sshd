@@ -1,0 +1,6 @@
+ssh1:
+  image: ixis/docker-sshd
+  volumes:
+   - /root/testclient/authorized_keys:/root/.ssh/authorized_keys:ro
+  ports:
+   - "1234:22"
